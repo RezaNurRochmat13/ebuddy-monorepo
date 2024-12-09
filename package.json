@@ -2,13 +2,16 @@
   "name": "ebuddy-turborepo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "lint-staged": {
+    "*.{js,ts,tsx}": ["eslint --fix", "prettier --write"], "*.{md,json}": ["prettier -w"]
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint"
   },
   "devDependencies": {
+    "lint-staged": "^15.2.10",
     "turbo": "latest"
   },
   "author": "",
