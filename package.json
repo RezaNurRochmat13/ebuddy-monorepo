@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "lint-staged": {
-    "*.{js,ts,tsx}": ["eslint --fix", "prettier --write"], "*.{md,json}": ["prettier -w"]
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json}": [
+      "prettier -w"
+    ]
   },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "lint-staged": "^15.2.10",
-    "turbo": "latest"
+    "turbo": "latest",
+    "husky": "^8.0.0"
   },
   "author": "",
   "license": "ISC",
