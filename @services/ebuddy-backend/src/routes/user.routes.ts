@@ -1,7 +1,9 @@
 import express from "express";
 import UsersController from "./../controller/users.controller";
+import useUserMiddleware from "../middleware/auth.middleware";
 
 const userRouter = express.Router();
+userRouter.use(useUserMiddleware)
 const { index, show, create, update, destroy } = UsersController()
 
 userRouter.get("/users", index);
