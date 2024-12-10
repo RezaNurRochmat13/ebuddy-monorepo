@@ -16,9 +16,8 @@ export default function UsersController() {
     }
 
     async function create(request: Request, response: Response) {
-        const { name, username, password, address } = request.body;
-        const user = await createUser({ name, username, password, address });
-        response.json(user);
+        const user = await createUser(request.body);
+        response.status(201).json({ message: 'User created successfully', data: user});
     }
 
     async function update(request: Request, response: Response) {

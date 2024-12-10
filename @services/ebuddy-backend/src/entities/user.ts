@@ -52,6 +52,15 @@ class User {
     setAddress(address: String) {
         this.address = address;
     }
+
+    toObject() {
+        return {
+            name: this.name,
+            username: this.username,
+            password: this.password,
+            address: this.address,
+          };
+    }
 }
 
 export default User;

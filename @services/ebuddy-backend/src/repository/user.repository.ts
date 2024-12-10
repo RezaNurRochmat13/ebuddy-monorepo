@@ -27,7 +27,7 @@ export default function UsersRepository() {
         return users;
     }
 
-    async function save(user: User) {
+    async function save(user: {}) {
         await addDoc(collection(db, 'users'), user)
     }
 
