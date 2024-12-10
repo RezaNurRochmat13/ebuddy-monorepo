@@ -29,3 +29,49 @@ Technology for built application
 - Nodemon
 - TS Node
 - Typescript
+
+## Endpoint
+
+Available endpoints on this application.
+
+-- Fetch all Users
+
+```
+- URL : localhost:8000/users
+- Method: GET
+- Output: JSON
+```
+
+-- Fetch Users by ID
+
+```
+- URL : localhost:8000/users/:id
+- Method: GET
+- Output: JSON
+```
+
+-- Create Users
+
+```
+- URL : localhost:8000/users
+- Method: POST
+- Request Body: JSON
+- Output: JSON
+```
+
+-- Update Users by ID
+
+```
+- URL : localhost:8000/users/:id
+- Method: PUT
+- Request Body: JSON
+- Output: JSON
+```
+
+-- Delete Users by ID
+
+```
+- URL : localhost:8000/users/:id
+- Method: DELETE
+- Output: JSON
+```
