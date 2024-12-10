@@ -1,13 +1,38 @@
+import { Request, Response } from "express";
+import UsersService from "../service/user.service"
+
+const { findAllUsers, createUser, updateUser, findUserById, deleteUser } = UsersService();
+
 export default function UsersController() {
-    function index() {}
+    async function index(request: Request, response: Response) {
+        const users = await findAllUsers();
+        response.json(users);
+    }
 
-    function show() {}
+    async function show(request: Request, response: Response) {
+        const { id } = request.params;
+        const user = await findUserById(id);
+        response.json(user);
+    }
 
-    function create() {}
+    async function create(request: Request, response: Response) {
+        const { name, username, password, address } = request.body;
+        const user = await createUser({ name, username, password, address });
+        response.json(user);
+    }
 
-    function update() {}
+    async function update(request: Request, response: Response) {
+        const { id } = request.params;
+        const { name, username, password, address } = request.body;
+        const user = await updateUser(id, { name, username, password, address });
+        response.json(user);
+    }
 
-    function destroy() {}
+    async function destroy(request: Request, response: Response) {
+        const { id } = request.params;
+        const user = await deleteUser(id);
+        response.json(user);
+    }
 
     return {
         index,

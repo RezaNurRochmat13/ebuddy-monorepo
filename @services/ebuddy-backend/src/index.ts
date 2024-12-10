@@ -1,8 +1,8 @@
 import { useApp } from "./core/app";
+import applicationConfig from "./config/application.config";
 
 const app = useApp();
-const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+app.listen(applicationConfig.port, () => {
+  console.log(`[server]: Server is running at http://localhost:${applicationConfig.port}`);
 });
