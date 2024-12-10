@@ -22,9 +22,8 @@ export default function UsersController() {
 
     async function update(request: Request, response: Response) {
         const { id } = request.params;
-        const { name, username, password, address } = request.body;
-        const user = await updateUser(id, { name, username, password, address });
-        response.json(user);
+        const user = await updateUser(id, request.body);
+        response.json({message: "User updated successfully", data: user});
     }
 
     async function destroy(request: Request, response: Response) {

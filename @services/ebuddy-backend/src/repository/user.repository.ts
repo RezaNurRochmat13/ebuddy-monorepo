@@ -38,7 +38,7 @@ export default function UsersRepository() {
         return new User(user?.id, user?.name, user?.username, user?.password, user?.address);
     }
 
-    async function update(id: string, payload: User) {
+    async function update(id: string, payload: {}) {
         const user = doc(db, 'users', id);
         await updateDoc(user, payload as any);
     }

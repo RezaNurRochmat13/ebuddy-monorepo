@@ -26,11 +26,12 @@ export default function UsersService() {
         return newUser;
     }
 
-    async function updateUser(id: string, user: any) {
+    async function updateUser(id: string, payload: any) {
+        const user = new User(payload.id, payload.name, payload.username, payload.password, payload.address);
         const updatedHashedPassword = await encryptPassword(user.getPassword() as string);
+       
         user.setPassword(updatedHashedPassword);
-
-        const updatedUser = await update(id, user);
+        const updatedUser = await update(id, user.toObject());
         return updatedUser;
     }
 
