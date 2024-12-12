@@ -3,24 +3,48 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, loginWithGoogle } from '@/store/actions/authActions';
 import { RootState } from '@/store/store';
+import { Box, Typography, Avatar, Button } from '@mui/material';
 
 export default function Login() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      mt={5}
+    >
       {user ? (
-        <div>
-          <h3>Welcome, {user.displayName}</h3>
-          <img src={user.photoURL || ''} alt="User Avatar" style={{ borderRadius: '50%', width: '100px' }} />
-          <button onClick={() => dispatch(logout())} style={{ marginTop: '20px' }}>
+        <Box textAlign="center">
+          <Typography variant="h5" gutterBottom>
+            Welcome, {user.displayName}
+          </Typography>
+          <Avatar
+            src={user.photoURL || ''}
+            alt="User Avatar"
+            sx={{ width: 100, height: 100, margin: '20px auto' }}
+          />
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => dispatch(logout())}
+            sx={{ mt: 2 }}
+          >
             Logout
-          </button>
-        </div>
+          </Button>
+        </Box>
       ) : (
-        <button onClick={() => dispatch(loginWithGoogle())}>Login with Google</button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => dispatch(loginWithGoogle())}
+        >
+          Login with Google
+        </Button>
       )}
-    </div>
+    </Box>
   );
 }
